@@ -9,7 +9,7 @@ author_profile: true
 **Hoc vien Cong nghe Buu chinh Vien thong (PTIT)**
 - Nganh: Internet of Things
 - Thoi gian: 2023 - nay
-- MSSV: N23DCCI015
+- GPA: 3.2/4.0
 
 ## Ky nang ky thuat
 
