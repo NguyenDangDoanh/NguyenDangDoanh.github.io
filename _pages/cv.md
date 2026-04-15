@@ -12,6 +12,7 @@ author_profile: true
 - MSSV: N23DCCI015
 
 ## Ky nang ky thuat
+
 | Ky nang | Muc do | Chi tiet |
 |---------|--------|----------|
 | C/C++ (Arduino) | Trung binh | Firmware, cam bien, Serial |
