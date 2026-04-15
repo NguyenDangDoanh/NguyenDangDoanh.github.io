@@ -3,62 +3,27 @@ layout: archive
 title: "CV"
 permalink: /cv/
 author_profile: true
-redirect_from:
-  - /resume
 ---
 
-{% include base_path %}
+## Hoc van
+**Hoc vien Cong nghe Buu chinh Vien thong (PTIT)**
+- Nganh: Internet of Things
+- Thoi gian: 2023 - nay
+- MSSV: N23DCCI015
 
-Education
-======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+## Ky nang ky thuat
+| Ky nang | Muc do | Chi tiet |
+|---------|--------|----------|
+| C/C++ (Arduino) | Trung binh | Firmware, cam bien, Serial |
+| Git/GitHub | Trung binh | Branch, merge, Pull Request |
+| C# WinForms | Co ban | Hien thi du lieu cam bien, do thi |
+| Proteus | Co ban | Mo phong mach va cam bien |
+| Markdown | Trung binh | Viet README va noi dung GitHub Pages |
 
-Work experience
-======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+## Du an
+- **Arduino LM35 Temperature Monitor** - He thong doc nhiet do tu cam bien LM35, gui du lieu Serial va hien thi do thi tren may tinh.
+- **GitHub Pages Personal Site** - Xay dung trang ca nhan bang template Academic Pages.
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
-Skills
-======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
-
-Publications
-======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+## Ngon ngu
+- Tieng Viet
+- Tieng Anh co ban
