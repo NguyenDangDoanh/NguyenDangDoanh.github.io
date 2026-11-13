@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#faf8ff" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Hội Bạn Mình" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/app-icon-180.png" />
+    <meta name="description" content="Chọn Thật hay Thách hoặc Thật hay Uống. Hai cách chơi, thật nhiều câu chuyện cùng hội bạn." />
+    <title>Hội Bạn Mình</title>
+    <link rel="icon" href="./assets/app-icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./src/modes.css" />
+    <link rel="stylesheet" href="./src/drink.css" />
+    <link rel="stylesheet" href="./src/truth-dare.css" />
+    <script type="module" src="./src/main.js"></script>
+  </head>
+  <body>
+    <svg class="svg-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+      <symbol id="icon-spark" viewBox="0 0 24 24"><path d="m12 3 2.4 6.6L21 12l-6.6 2.4L12 21l-2.4-6.6L3 12l6.6-2.4L12 3Z"/></symbol>
+      <symbol id="icon-heart" viewBox="0 0 24 24"><path d="M20 5a5 5 0 0 0-8 1 5 5 0 0 0-8-1c-6 6 8 15 8 15S26 11 20 5Z"/></symbol>
+      <symbol id="icon-shuffle" viewBox="0 0 24 24"><path d="M4 6h3c4 0 6 12 10 12h3m-4-4 4 4-4 4M4 18h3c1.5 0 3-2 4-4m2-4c1-2 2.5-4 4-4h3m-4-4 4 4-4 4"/></symbol>
+      <symbol id="icon-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20v-2a6 6 0 0 1 12 0v2m1-15a3 3 0 0 1 0 6m2 3a5 5 0 0 1 3 4v2"/></symbol>
+      <symbol id="icon-cards" viewBox="0 0 24 24"><rect x="8" y="3" width="12" height="16" rx="3"/><path d="m5 6-3 1 4 15 10-2m-4-9h4m-4 4h2"/></symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+      <symbol id="icon-glass" viewBox="0 0 24 24"><path d="M5 7h14l-2 14H7L5 7Zm9 0 2-5h4M6 12c3-2 9 2 12 0"/></symbol>
+      <symbol id="icon-share" viewBox="0 0 24 24"><path d="M12 15V2m-4 4 4-4 4 4M7 9H4v12h16V9h-3"/></symbol>
+      <symbol id="icon-home" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-8h6v8"/></symbol>
+    </svg>
+
+    <div class="page-shell">
+      <header class="app-header">
+        <a id="app-back" class="app-back" href="#chon-tro-choi" aria-label="Quay lại chọn trò chơi" hidden><svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg><span>Quay lại</span></a>
+        <a id="home-mark" class="home-mark" href="#chon-tro-choi" aria-label="Trang chọn trò chơi"><img src="./assets/app-icon.svg" alt="" width="42" height="42"/></a>
+        <span class="app-brand"><span id="app-name">hội bạn mình</span><span aria-hidden="true">✳</span></span>
+        <button id="mode-help" class="icon-button" type="button" data-dialog="help-dialog" aria-label="Cách chơi" hidden>?</button>
+        <button id="app-install-shortcut" class="icon-button" type="button" data-dialog="install-dialog" aria-label="Cài lên iPhone"><svg class="icon" aria-hidden="true"><use href="#icon-share"/></svg></button>
+      </header>
+      <div id="app-update" class="app-update" role="status" hidden><span>Có phiên bản mới.</span><button id="apply-update" type="button">Cập nhật</button></div>
+
+      <main>
+        <section id="mode-select" data-view="home" aria-labelledby="mode-title">
+          <div class="home-intro"><h1 id="mode-title">Cả hội,<br/>chơi gì nào?</h1><p>Kéo ghế lại gần. Cuộc vui bắt đầu.</p></div>
+          <div class="mode-grid" aria-label="Chọn trò chơi">
+            <a class="mode-card mode-card-dare" href="#that-hay-thach" aria-label="Chơi Thật hay Thách">
+              <div class="mode-card-top"><div><h2>Thật hay Thách</h2><p>Kể một bí mật.<br/>Hoặc thử một điều mới.</p></div><span class="mode-pair" aria-hidden="true"><span data-art="heart"></span><span data-art="flame"></span></span></div>
+              <span class="mode-enter">Mình chơi trò này<svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></span>
+            </a>
+            <a class="mode-card mode-card-drink" href="#that-hay-uong" aria-label="Chơi Thật hay Uống">
+              <div class="mode-card-top"><div><h2>Thật hay Uống</h2><p>Chọn bộ bài, lật một câu.<br/>Thật lòng hay nâng ly?</p></div><span class="mode-single" data-art="mix" aria-hidden="true"></span></div>
+              <span class="mode-enter">Mình chơi trò này<svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></span>
+            </a>
+          </div>
+          <button id="install-card" class="install-card" type="button" data-dialog="install-dialog"><img src="./assets/app-icon-180.png" width="45" height="45" alt=""/><span><strong>Thêm vào iPhone</strong><small id="pwa-status" role="status">Đang chuẩn bị để chơi ngoại tuyến…</small></span><svg class="icon" aria-hidden="true"><use href="#icon-share"/></svg></button>
+        </section>
+
+        <section id="truth-dare-view" class="dare-view" data-view="truth-dare" aria-label="Thật hay Thách" hidden>
+          <div id="dare-choice-intro" class="game-intro"><h1 id="page-title">Thật lòng<br/>hay thử thách?</h1><p>Đến lượt bạn. Chọn điều mình muốn thử.</p></div>
+          <div id="choice-screen" class="choice-screen">
+            <button id="choose-truth" type="button" class="choice-card truth-card" aria-label="Chọn Thật"><span class="choice-art" data-art="heart" aria-hidden="true"></span><strong>Thật</strong><span class="choice-description">Bật mí một điều<br/>về bạn.</span><span class="choice-cta">Mở câu hỏi<svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></span></button>
+            <button id="choose-dare" type="button" class="choice-card dare-card" aria-label="Chọn Thách"><span class="choice-art" data-art="flame" aria-hidden="true"></span><strong>Thách</strong><span class="choice-description">Một chút liều,<br/>một chuyện vui.</span><span class="choice-cta">Nhận thử thách<svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></span></button>
+          </div>
+          <div id="dare-question-heading" class="game-intro question-intro" hidden><h1 id="dare-question-title">Mình chọn Thật.</h1><p id="dare-question-subtitle">Cứ kể đi, cả hội đang nghe.</p></div>
+          <div id="question-screen" hidden>
+            <article id="question-card" class="question-card" aria-labelledby="question-text"><div class="question-top"><span id="question-type">Thật lòng nào</span><span id="question-art" class="question-art" aria-hidden="true"></span></div><div class="question-body"><h2 id="question-text" tabindex="-1"></h2></div><span class="card-signature">hội bạn mình ✳</span></article>
+            <div class="question-actions"><button id="another-question" type="button" class="secondary-button"><svg class="icon" aria-hidden="true"><use href="#icon-shuffle"/></svg>Câu khác</button><button id="next-turn" type="button" class="primary-button">Lượt tiếp theo<svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></button></div>
+            <a id="back-to-choice" class="text-back" href="#that-hay-thach"><svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg>Chọn lại Thật / Thách</a>
+          </div>
+          <p class="gentle-reminder">Không thoải mái? Cứ đổi câu nhé.</p>
+          <a class="change-game" href="#chon-tro-choi"><svg class="icon" aria-hidden="true"><use href="#icon-home"/></svg>Đổi trò chơi</a>
+        </section>
+
+        <section id="truth-drink-view" class="drink-view" data-view="truth-drink" aria-label="Thật hay Uống" hidden>
+
+
+          <div id="drink-pick-screen">
+            <div class="drink-pick-intro">
+              <div><h1 id="drink-title">Hôm nay,<br/>bật mí gì?</h1><p>Chọn một bộ bài cho cuộc vui.</p></div>
+              <svg class="drink-intro-art" viewBox="0 0 110 120" aria-hidden="true" fill="none" stroke="#382c4e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="14" y="19" width="60" height="80" rx="11" transform="rotate(-13 44 59)" fill="#c4e5d8"/><rect x="34" y="25" width="60" height="80" rx="11" transform="rotate(12 64 65)" fill="#f8dc85"/><path d="m54 52-2 7m23-3-2 7M50 72q7 17 23 5M88 7l-1 9m9-5-7 5m-76 85-6 5m13-1-1 8"/><path d="m27 2 3 7 7 3-7 3-3 7-3-7-7-3 7-3Z" fill="#b49cdd" stroke="none"/></svg>
+            </div>
+            <div class="drink-library-heading"><h2>Chọn thể loại</h2></div>
+            <div id="drink-categories" class="drink-category-grid" role="group" aria-label="Chọn thể loại"></div>
+            <div class="drink-start-dock">
+              <p><span>Bộ bài của bạn</span><strong id="drink-selected">Vui vẻ</strong></p>
+              <button id="drink-start" class="drink-primary" type="button">Bắt đầu chơi<svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+            </div>
+          </div>
+
+          <div id="drink-play-screen" hidden>
+            <div class="drink-play-heading"><span id="drink-face-art" class="drink-topic-art" aria-hidden="true"></span><div><h1 id="drink-play-title">Vui vẻ</h1><p id="drink-play-description"></p></div></div>
+            <div class="drink-deck">
+              <div id="drink-flipper" class="drink-flipper">
+                <button id="drink-reveal" class="drink-card-back" type="button" aria-label="Mở câu hỏi" aria-controls="drink-card-front">
+                  <span class="drink-card-brand">thật hay uống<span aria-hidden="true">✳</span></span>
+                  <span id="drink-back-art" class="drink-back-art"></span>
+                  <strong>Có chuyện gì<br/>chưa kể?</strong>
+                  <span class="drink-tap-hint"><svg class="icon" aria-hidden="true"><path d="M9 11V5a2 2 0 0 1 4 0v7m0-4h2a2 2 0 0 1 2 2v1h1a2 2 0 0 1 2 2v3c0 4-3 6-6 6s-4-1-6-3l-4-5a2 2 0 0 1 3-2l2 2"/></svg>Chạm để mở câu hỏi</span>
+                  <span class="drink-card-spark spark-one" aria-hidden="true">✳</span><span class="drink-card-spark spark-two" aria-hidden="true">✦</span>
+                </button>
+                <article id="drink-card-front" class="drink-card-front" aria-hidden="true" aria-labelledby="drink-question">
+                  <div class="drink-card-front-top"><span id="drink-card-category">Vui vẻ</span><svg class="icon" aria-hidden="true"><use href="#icon-spark"/></svg></div>
+                  <div class="drink-question-body"><h2 id="drink-question" tabindex="-1"></h2></div>
+                  <span class="drink-card-signature">thật hay uống<span aria-hidden="true">✳</span></span>
+                </article>
+              </div>
+            </div>
+            <div class="drink-play-dock">
+              <button id="drink-next" class="drink-next" type="button"><span id="drink-next-label">Bỏ qua thẻ này</span><svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+              <p id="drink-turn-hint">Chuyền máy cho người chơi, rồi mở thẻ nhé.</p>
+              <a class="drink-change-topic" href="#that-hay-uong"><svg class="icon" aria-hidden="true"><use href="#icon-cards"/></svg>Đổi thể loại</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="app-footer"><span>Vui theo cách của hội mình.</span><button type="button" data-dialog="sources-dialog">Nguồn câu hỏi</button></footer>
+    </div>
+
+    <dialog id="help-dialog" aria-labelledby="help-title">
+      <div class="dialog-heading"><span class="dialog-eyebrow">HỘI ĐỦ MẶT, VUI BẮT ĐẦU</span><button type="button" class="close-dialog" aria-label="Đóng hướng dẫn"><svg class="icon" aria-hidden="true"><use href="#icon-close"/></svg></button></div>
+      <h2 id="help-title">Chơi thôi. Dễ lắm!</h2>
+      <ol class="how-to-list"><li><span>01</span><div><h3>Chọn Thật hoặc Thách</h3><p>Đến lượt ai, người đó chọn điều mình muốn thử.</p></div></li><li><span>02</span><div><h3>Xem câu, chơi hết mình</h3><p>Trả lời thật lòng hoặc thực hiện thử thách. Chưa hợp? Bấm “Câu khác”.</p></div></li><li><span>03</span><div><h3>Chuyền máy cho người tiếp theo</h3><p>Bấm “Lượt tiếp theo” để đổi lượt. “Chọn lại Thật / Thách” hoặc nút “Quay lại” đưa bạn về màn chọn.</p></div></li></ol>
+      <p class="dialog-note">Không tính điểm, không áp lực. Cứ vui theo cách của hội mình.</p>
+      <button type="button" class="primary-button dialog-done">Hiểu rồi, chơi thôi!<svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+    </dialog>
+
+    <dialog id="drink-help-dialog" aria-labelledby="drink-help-title">
+      <div class="dialog-heading"><span class="dialog-eyebrow">THẬT HAY UỐNG</span><button type="button" class="close-dialog" aria-label="Đóng hướng dẫn Thật hay Uống"><svg class="icon" aria-hidden="true"><use href="#icon-close"/></svg></button></div>
+      <h2 id="drink-help-title">Thật lòng hay nâng ly?</h2>
+      <ol class="how-to-list"><li><span>01</span><div><h3>Chọn bộ bài</h3><p>Chọn một thể loại, rồi bấm “Bắt đầu chơi”.</p></div></li><li><span>02</span><div><h3>Chạm để mở câu hỏi</h3><p>Đến lượt ai, người đó chạm vào thẻ úp. Trả lời thật lòng, chọn uống hoặc bỏ qua đều được. Nước lọc hay nước trái cây cũng được nhé.</p></div></li><li><span>03</span><div><h3>Chuyền máy, mở thẻ mới</h3><p>Bấm “Thẻ tiếp theo”. Câu mới sẽ được giấu cho đến khi người chơi chạm mở. Muốn đổi không khí? Bấm “Đổi thể loại”.</p></div></li></ol>
+      <p class="dialog-note">Câu hỏi tiếng Việt, nguồn The Coolist. Mỗi chủ đề được xáo riêng, hết bộ mới lặp lại.</p>
+      <button type="button" class="primary-button dialog-done">Hiểu rồi, chơi thôi!<svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+    </dialog>
+
+    <dialog id="sources-dialog" aria-labelledby="sources-title">
+      <div class="dialog-heading"><span class="dialog-eyebrow">CHUYỆN VUI BẮT ĐẦU TỪ ĐÂU?</span><button type="button" class="close-dialog" aria-label="Đóng nguồn cảm hứng"><svg class="icon" aria-hidden="true"><use href="#icon-close"/></svg></button></div>
+      <h2 id="sources-title">Nguồn cảm hứng</h2>
+      <p class="sources-intro">Bộ câu hỏi tiếng Việt do bạn cung cấp, theo Teen Vogue (Thật hay Thách) và The Coolist (Thật hay Uống).</p>
+      <div id="source-links" class="source-links"></div><p class="dialog-note">Thật hay Uống: bài viết của The Coolist, theo bản tiếng Việt bạn cung cấp.</p>
+      <p class="dialog-note">Nhấn “Câu khác” bất cứ khi nào bạn muốn đổi. Cuộc vui là của tất cả!</p>
+    </dialog>
+    <dialog id="install-dialog" aria-labelledby="install-title">
+      <div class="dialog-heading"><span>Cài trên iPhone</span><button type="button" class="close-dialog" aria-label="Đóng hướng dẫn cài"><svg class="icon" aria-hidden="true"><use href="#icon-close"/></svg></button></div>
+      <div class="install-identity"><img src="./assets/app-icon-180.png" width="66" height="66" alt="Biểu tượng Hội Bạn Mình"/><div><h2 id="install-title">Mang cuộc vui<br/>theo bạn.</h2><p>Hội Bạn Mình</p></div></div>
+      <ol class="how-to-list"><li><span>1</span><div><h3>Mở link bằng Safari</h3><p>Trên iPhone, mở đường dẫn của trò chơi trong Safari.</p></div></li><li><span>2</span><div><h3>Chạm Chia sẻ</h3><p>Chọn biểu tượng <svg class="icon inline-icon" aria-label="Chia sẻ"><use href="#icon-share"/></svg>, rồi tìm “Thêm vào Màn hình chính”.</p></div></li><li><span>3</span><div><h3>Thêm ứng dụng</h3><p>Nếu có “Mở dưới dạng ứng dụng web”, hãy bật lên. Chạm “Thêm”, rồi mở Hội Bạn Mình từ màn hình chính.</p></div></li></ol>
+      <p id="install-address-note" class="dialog-note">Sau lần tải đầu, bạn có thể tiếp tục chơi khi mất mạng.</p>
+      <button type="button" class="primary-button dialog-done">Mình hiểu rồi</button>
+    </dialog>
+    <noscript><p class="noscript">Bạn cần bật JavaScript để chọn trò chơi.</p></noscript>
+  </body>
+</html>

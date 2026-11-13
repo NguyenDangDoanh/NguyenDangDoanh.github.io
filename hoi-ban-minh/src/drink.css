@@ -1,0 +1,80 @@
+/* Chỉ áp dụng cho Thật hay Uống. Một bộ bài nhỏ gọn, ưu tiên thao tác chạm. */
+.drink-view{--ink:#382c4e;--muted:#756b83;--paper:#f8dc85;--deck:#6750a4;color:var(--ink)}
+.drink-view button,.drink-view a{touch-action:manipulation}
+.drink-view button:focus-visible,.drink-view a:focus-visible{outline:3px solid #8c66c1;outline-offset:4px}
+
+
+
+
+
+
+
+.drink-pick-intro{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:8px 0 20px}
+.drink-view h1{font-size:35px;font-weight:800;line-height:1.24;letter-spacing:-1.6px;margin:0;display:block}
+.drink-pick-intro p{font-size:13px;line-height:1.7;color:var(--muted);margin:12px 0 0}
+.drink-intro-art{width:106px;max-width:28%;flex-shrink:0;transform:rotate(3deg)}
+.drink-library-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 14px}
+.drink-library-heading h2{font-size:14px;font-weight:700;margin:0;letter-spacing:-.2px}
+.drink-category-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.drink-category-tile{position:relative;display:flex;flex-direction:column;text-align:left;align-items:flex-start;min-height:156px;padding:16px 15px 17px;border:1.5px solid #382c4e25;border-radius:20px;background:var(--paper);color:var(--ink);box-shadow:0 3px 0 #382c4e0d;transition:transform .16s,box-shadow .16s,border-color .16s}
+.drink-category-tile:active{transform:scale(.97)}
+.drink-category-tile[aria-pressed="true"]{border-color:var(--ink);box-shadow:0 0 0 1.5px var(--ink),0 4px 0 #382c4e25}
+.category-picture{display:block;width:44px;height:44px;margin-bottom:10px}
+.drink-art{display:block;width:100%;height:100%;overflow:visible}
+.category-copy{display:flex;flex-direction:column;gap:5px}
+.category-copy strong{font-size:20px;letter-spacing:-.7px;line-height:1.3;font-weight:800}
+.category-copy>span{font-size:12px;line-height:1.5;letter-spacing:-.15px}
+.category-check{position:absolute;top:-8px;right:-7px;width:24px;height:24px;display:none;background:var(--ink);border-radius:50%;color:white;box-shadow:0 0 0 3px #faf8ff}
+.category-check svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.drink-category-tile[aria-pressed="true"] .category-check{display:block}
+.category-all .category-copy strong{font-size:18px;letter-spacing:-.5px}
+.drink-start-dock{position:sticky;bottom:0;z-index:4;background:#faf8fff5;padding:17px 0 max(17px,env(safe-area-inset-bottom));margin-top:10px;backdrop-filter:blur(14px)}
+.drink-start-dock p{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:11px;color:var(--muted);margin:0 2px 10px}
+.drink-start-dock strong{font-weight:600;color:var(--ink)}
+.drink-primary{width:100%;display:flex;align-items:center;justify-content:center;gap:15px;min-height:56px;padding:15px 20px;border-radius:17px;background:var(--ink);color:#fff;font-size:15px;font-weight:600;box-shadow:0 4px 0 #251b3a24}
+.drink-primary:active{transform:translateY(2px);box-shadow:0 1px 0 #251b3a24}
+.drink-primary .icon{width:19px;height:19px}
+.drink-play-heading{display:flex;align-items:center;gap:14px;margin:22px 0 30px}
+.drink-topic-art{width:58px;height:58px;border-radius:18px;background:var(--paper);padding:10px;flex-shrink:0}
+.drink-play-heading h1{font-size:29px;line-height:1.3;letter-spacing:-1px}
+.drink-play-heading p{margin:6px 0 0;font-size:12px;line-height:1.6;color:var(--muted)}
+.drink-deck{position:relative;margin:0 9px 27px;isolation:isolate;perspective:1400px}
+.drink-deck::before,.drink-deck::after{content:'';position:absolute;inset:7px -1px -7px;border:1.5px solid #382c4e3b;border-radius:25px;background:var(--paper);z-index:-1;transform:rotate(-3deg)}
+.drink-deck::after{inset:5px 1px -5px;transform:rotate(2deg);background:#f0e8f6}
+.drink-flipper{position:relative;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.2,.75,.25,1)}
+.drink-flipper.is-revealed{transform:rotateY(180deg)}
+.drink-card-back,.drink-card-front{border-radius:24px;-webkit-backface-visibility:hidden;backface-visibility:hidden;border:1.5px solid #382c4e55;overflow:hidden;min-height:374px}
+.drink-card-back{position:absolute;inset:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;padding:24px 22px;background:var(--deck);color:#fff9ed;transform:rotateY(0deg);cursor:pointer}
+.drink-card-back::before{content:'';position:absolute;inset:10px;border:1px solid #fff9ed40;border-radius:16px;pointer-events:none}
+.drink-card-back:active{filter:brightness(.94)}
+.drink-card-brand{display:flex;gap:8px;align-items:center;font-size:12px;letter-spacing:-.25px;font-weight:500;align-self:flex-start}
+.drink-card-brand>span{font-size:19px}
+.drink-back-art{--art-fill:var(--paper);display:block;width:104px;height:104px;color:var(--ink);margin:22px 0 17px;transform:rotate(-8deg)}
+.drink-card-back>strong{font-size:28px;letter-spacing:-.9px;line-height:1.3;font-weight:800;margin-bottom:24px}
+.drink-tap-hint{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-size:12px;background:#ffffff17;border:1px solid #ffffff35;border-radius:30px;padding:11px 16px;margin-top:auto}
+.drink-tap-hint .icon{width:18px;height:18px}
+.drink-card-spark{position:absolute;color:var(--paper);font-size:29px;line-height:1;pointer-events:none}
+.spark-one{top:105px;left:30px;transform:rotate(10deg)}
+.spark-two{top:182px;right:22px;font-size:21px}
+.drink-card-front{display:flex;flex-direction:column;background:var(--paper);color:var(--ink);padding:23px 24px;transform:rotateY(180deg)}
+.drink-card-front-top{display:flex;align-items:center;justify-content:space-between;font-size:12px;font-weight:600}
+.drink-card-front-top .icon{width:22px;height:22px}
+.drink-question-body{flex:1;display:flex;align-items:center;justify-content:center;min-height:265px;padding:24px 0}
+.drink-question-body h2{font-size:25px;font-weight:700;letter-spacing:-.65px;line-height:1.55;text-align:center;margin:0;overflow-wrap:anywhere}
+.drink-question-body h2.is-long{font-size:20px;line-height:1.6;letter-spacing:-.3px}
+.drink-question-body h2:focus{outline:none}
+.drink-card-signature{display:flex;align-items:center;justify-content:center;gap:5px;font-size:11px;opacity:.7;letter-spacing:-.2px}
+.drink-card-signature>span{font-size:18px}
+.drink-play-dock{padding:0 0 max(16px,env(safe-area-inset-bottom));text-align:center}
+.drink-next{display:flex;align-items:center;justify-content:center;gap:12px;min-height:54px;width:100%;border-radius:16px;border:1px solid #ded5eb;background:transparent;color:var(--ink);font-size:13px;font-weight:600}
+.drink-next.is-primary{background:var(--ink);color:white;border-color:var(--ink);box-shadow:0 3px 0 #382c4e1a}
+.drink-next:active{transform:translateY(2px)}
+.drink-next .icon{width:18px;height:18px}
+.drink-play-dock>p{font-size:11px;color:var(--muted);line-height:1.8;margin:14px 0 6px}
+.drink-change-topic{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:44px;padding:10px 16px;font-size:12px;color:var(--muted)}
+.drink-change-topic .icon{width:16px;height:16px}
+#drink-help-dialog .primary-button{background:#6750a4}
+#drink-help-dialog .close-dialog{min-width:44px;min-height:44px}
+@media(min-width:700px){.drink-category-tile{min-height:169px}}
+@media(max-width:360px){.drink-view h1{font-size:34px}.drink-pick-intro{margin-top:10px;margin-bottom:23px}.drink-pick-intro p{font-size:11px}.drink-category-grid{gap:10px}.drink-category-tile{padding:14px 12px;min-height:156px}.category-copy strong{font-size:19px}.category-copy>span{font-size:11px}.category-check{width:22px;height:22px}.drink-play-heading h1{font-size:27px}.drink-play-heading{margin-top:17px}.drink-play-heading p{font-size:11px}.drink-card-front{padding:22px 19px}.drink-question-body h2{font-size:22px}.drink-question-body h2.is-long{font-size:18px}.drink-card-back>strong{font-size:26px}.drink-tap-hint{font-size:11px;padding:10px 13px}.spark-one{left:23px}.spark-two{right:18px}}
+@media(prefers-reduced-motion:reduce){.drink-flipper{transition:none}.drink-category-tile:active,.drink-primary:active,.drink-next:active{transform:none}}
